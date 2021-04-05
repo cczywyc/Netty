@@ -1,4 +1,4 @@
-package com.wangyc.nio;
+package com.wangyc.nio.channel;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

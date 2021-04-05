@@ -1,4 +1,4 @@
-package com.wangyc.nio;
+package com.wangyc.nio.channel;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
