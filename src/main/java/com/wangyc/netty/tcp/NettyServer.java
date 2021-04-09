@@ -1,4 +1,4 @@
-package com.wangyc.netty;
+package com.wangyc.netty.tcp;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;

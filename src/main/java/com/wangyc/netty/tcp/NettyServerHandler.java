@@ -1,4 +1,4 @@
-package com.wangyc.netty;
+package com.wangyc.netty.tcp;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
