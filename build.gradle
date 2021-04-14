@@ -5,6 +5,9 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+compileJava.options.encoding = 'GBK'
+compileTestJava.options.encoding = 'GBK'
+
 repositories {
     mavenCentral()
 }
@@ -19,8 +22,4 @@ dependencies {
 
 test {
     useJUnitPlatform()
-}
-
-tasks.withType(JavaCompile) {
-    options.encoding = "GBK"
 }
