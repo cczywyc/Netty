@@ -11,16 +11,16 @@ import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 
 /**
- * 群聊系统服务端
+ * chat group server
  *
  * @author wangyc
  */
 public class GroupChatServer {
-    /** 选择器 */
+    /** selector */
     private Selector selector;
     /** ServerSocketChannel */
     private ServerSocketChannel listenChannel;
-    /** 端口 */
+    /** port */
     private static final int PORT = 6667;
 
     public static void main(String[] args) {
@@ -29,14 +29,14 @@ public class GroupChatServer {
     }
 
     /**
-     * 构造器，初始化工作
+     * constructor
      */
     public GroupChatServer() {
         try {
             selector = Selector.open();
             listenChannel = ServerSocketChannel.open();
             listenChannel.socket().bind(new InetSocketAddress(PORT));
-            //设置非阻塞模式
+            //set no block
             listenChannel.configureBlocking(false);
             listenChannel.register(selector, SelectionKey.OP_ACCEPT);
         } catch (IOException e) {
@@ -45,14 +45,13 @@ public class GroupChatServer {
     }
 
     /**
-     * 监听主方法
+     * listen
      */
     private void listen() {
         while (true) {
             try {
                 int select = selector.select();
                 if (select > 0) {
-                    //有事件处理
                     Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
                     while (iterator.hasNext()) {
                         SelectionKey key = iterator.next();
@@ -78,7 +77,7 @@ public class GroupChatServer {
     }
 
     /**
-     * 读取客户端消息
+     * read message from client
      * @param key SelectionKey
      */
     private void readData(SelectionKey key) {
@@ -94,7 +93,7 @@ public class GroupChatServer {
             }
         } catch (IOException e) {
             try {
-                System.out.println(socketChannel.getRemoteAddress() + "离线了......");
+                System.out.println(socketChannel.getRemoteAddress() + "logout.......");
                 //取消注册
                 key.cancel();
                 socketChannel.close();
@@ -111,7 +110,6 @@ public class GroupChatServer {
      */
     private void sendInfoToOtherClients(String msg, SocketChannel self) throws IOException {
         System.out.println("服务器转发消息中......");
-        //遍历所有注册到selector上的SocketChannel，并排除self
         for (SelectionKey key : selector.keys()) {
             Channel targetChannel = key.channel();
             if (targetChannel instanceof SocketChannel && targetChannel != self) {

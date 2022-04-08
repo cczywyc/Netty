@@ -10,28 +10,28 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 /**
- * 群聊系统客户端
+ * chat group client
  *
  * @author wangyc
  */
 public class GroupChatClient {
-    /** 服务器ip */
+    /** server ip */
     private final String HOST = "127.0.0.1";
-    /** 端口 */
+    /** port */
     private final int PORT = 6667;
-    /** 选择器 */
+    /** selector */
     private Selector selector;
     /** SocketChannel */
     private SocketChannel socketChannel;
-    /** 用户名 */
+    /** account */
     private String username;
 
     /**
-     * 构造器，初始化
+     * constructor
      */
     public GroupChatClient() throws IOException {
         selector = Selector.open();
-        //连接服务器
+        //connect the server
         socketChannel = SocketChannel.open(new InetSocketAddress(HOST, PORT));
         socketChannel.configureBlocking(false);
         socketChannel.register(selector, SelectionKey.OP_READ);
@@ -40,8 +40,8 @@ public class GroupChatClient {
     }
 
     /**
-     * 向服务端发送消息
-     * @param msg 发送的消息
+     * send message to server
+     * @param msg message
      */
     private void SendMsg(String msg) {
         System.out.println(username + "说：" + msg);
@@ -54,7 +54,7 @@ public class GroupChatClient {
     }
 
     /**
-     * 读取从服务端回复的数据
+     * read data from server
      */
     private void readMsg() {
         try {
@@ -81,9 +81,8 @@ public class GroupChatClient {
     }
 
     public static void main(String[] args) throws IOException {
-        //启动客户端
+        //start client
         GroupChatClient client = new GroupChatClient();
-        //启动一个线程，每过3秒读取从服务端发送来的数据
         new Thread() {
             @Override
             public void run() {
@@ -98,7 +97,7 @@ public class GroupChatClient {
             }
         }.start();
 
-        //发送数据库给服务端
+        //send message to server
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNextLine()) {
             String s = scanner.nextLine();

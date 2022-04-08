@@ -7,12 +7,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 /**
- * 服务端处理器
+ *
  *
  * @author: wangyc
  */
 public class MyServerHandler extends SimpleChannelInboundHandler<MessageProtocol> {
-    /** 消息计数器 */
     private int count;
 
     @Override

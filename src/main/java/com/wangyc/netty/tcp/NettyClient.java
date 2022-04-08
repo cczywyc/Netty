@@ -9,7 +9,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
 /**
- * Netty 客户端
+ * Netty client
  *
  * @author wangyc
  */
