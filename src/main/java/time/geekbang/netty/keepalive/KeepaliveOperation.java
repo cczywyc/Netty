@@ -8,7 +8,7 @@ import time.geekbang.netty.common.OperationResult;
  */
 public class KeepaliveOperation extends Operation {
 
-    private long time;
+    private final long time;
 
     public KeepaliveOperation() {
         this.time = System.nanoTime();
