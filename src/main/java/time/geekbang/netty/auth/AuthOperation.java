@@ -1,15 +1,11 @@
 package time.geekbang.netty.auth;
 
-import lombok.Data;
-import lombok.extern.java.Log;
 import time.geekbang.netty.common.Operation;
 import time.geekbang.netty.common.OperationResult;
 
 /**
  * @author wangyc
  */
-@Data
-@Log
 public class AuthOperation extends Operation {
     private final String username;
     private final String password;
@@ -20,5 +16,10 @@ public class AuthOperation extends Operation {
             return new AuthOperationResult(true);
         }
         return new AuthOperationResult(false);
+    }
+
+    public AuthOperation(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 }

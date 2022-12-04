@@ -16,32 +16,31 @@ import io.netty.util.CharsetUtil;
 import java.net.URI;
 
 /**
- * ´¦ÀíÆ÷
  *
  * @author wangyc
  */
 public class NettyHttpServerHandler extends SimpleChannelInboundHandler<HttpObject> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, HttpObject msg) throws Exception {
-        System.out.println("¶ÔÓ¦µÄchannel=" + ctx.channel() + " pipeline=" + ctx
-                .pipeline() + " Í¨¹ýpipeline»ñÈ¡channel" + ctx.pipeline().channel());
-        System.out.println("µ±Ç°ctxµÄhandler=" + ctx.handler());
+        System.out.println("ï¿½ï¿½Ó¦ï¿½ï¿½channel=" + ctx.channel() + " pipeline=" + ctx
+                .pipeline() + " Í¨ï¿½ï¿½pipelineï¿½ï¿½È¡channel" + ctx.pipeline().channel());
+        System.out.println("ï¿½ï¿½Ç°ctxï¿½ï¿½handler=" + ctx.handler());
 
         if (msg instanceof HttpRequest) {
-            System.out.println("ctx ÀàÐÍ=" + ctx.getClass());
+            System.out.println("ctx ï¿½ï¿½ï¿½ï¿½=" + ctx.getClass());
             System.out.println("pipeline hashcode" + ctx.pipeline().hashCode() + " TestHttpServerHandler hash=" + this.hashCode());
-            System.out.println("msg ÀàÐÍ=" + msg.getClass());
-            System.out.println("¿Í»§¶ËµØÖ·" + ctx.channel().remoteAddress());
+            System.out.println("msg ï¿½ï¿½ï¿½ï¿½=" + msg.getClass());
+            System.out.println("ï¿½Í»ï¿½ï¿½Ëµï¿½Ö·" + ctx.channel().remoteAddress());
 
             HttpRequest httpRequest = (HttpRequest) msg;
             URI uri = new URI(httpRequest.uri());
             if ("/favicon.ico".equals(uri.getPath())) {
-                System.out.println("ÇëÇóÁËfavicon.ico,²»×öÏìÓ¦");
+                System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½favicon.ico,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦");
                 return;
             }
-            ByteBuf content = Unpooled.copiedBuffer("Hello, ÎÒÊÇ·þÎñÆ÷", CharsetUtil.UTF_8);
+            ByteBuf content = Unpooled.copiedBuffer("Hello, ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½", CharsetUtil.UTF_8);
 
-            //¹¹ÔìhttpResponse
+            //ï¿½ï¿½ï¿½ï¿½httpResponse
             FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, content);
             response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/plain");
             response.headers().set(HttpHeaderNames.CONTENT_LENGTH, content.readableBytes());

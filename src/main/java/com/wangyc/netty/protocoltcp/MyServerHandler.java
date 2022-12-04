@@ -19,13 +19,13 @@ public class MyServerHandler extends SimpleChannelInboundHandler<MessageProtocol
         int len = msg.getLen();
         byte[] content = msg.getContent();
 
-        System.out.println("服务端接收到消息");
-        System.out.println("长度=" + len);
-        System.out.println("内容=" + new String(content, StandardCharsets.UTF_8));
+        System.out.println("receive");
+        System.out.println("length" + len);
+        System.out.println("content" + new String(content, StandardCharsets.UTF_8));
 
-        System.out.println("服务器接收到消息包数量=" + (++this.count));
+        System.out.println("count" + (++this.count));
 
-        //回复消息
+        //锟截革拷锟斤拷息
         String responseContent = UUID.randomUUID().toString();
         int responseLen = responseContent.getBytes(StandardCharsets.UTF_8).length;
         byte[] respContent = responseContent.getBytes(StandardCharsets.UTF_8);

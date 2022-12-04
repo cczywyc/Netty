@@ -1,16 +1,13 @@
 package time.geekbang.netty.common;
 
 import io.netty.buffer.ByteBuf;
-import lombok.Data;
 import time.geekbang.netty.util.JsonUtil;
 
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 /**
  * @author wangyc
  */
-@Data
 public abstract class Message<T extends MessageBody> {
     /** message header */
     private MessageHeader messageHeader;
@@ -44,5 +41,17 @@ public abstract class Message<T extends MessageBody> {
         Class<T> bodyClazz = getMessageBodyDecodeClass(opCode);
         T body = JsonUtil.fromJson(msg.toString(StandardCharsets.UTF_8), bodyClazz);
         this.messageBody = body;
+    }
+
+    public MessageHeader getMessageHeader() {
+        return messageHeader;
+    }
+
+    public void setMessageHeader(MessageHeader messageHeader) {
+        this.messageHeader = messageHeader;
+    }
+
+    public void setMessageBody(T messageBody) {
+        this.messageBody = messageBody;
     }
 }

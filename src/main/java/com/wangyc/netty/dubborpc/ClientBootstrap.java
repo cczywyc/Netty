@@ -4,7 +4,6 @@ package com.wangyc.netty.dubborpc;
  * @author wangyc
  */
 public class ClientBootstrap {
-    /** ¶¨ÒåÐ­ÒéÍ· */
     public static final String providerName = "HelloService#hello#";
 
     public static void main(String[] args) throws InterruptedException {
@@ -13,7 +12,7 @@ public class ClientBootstrap {
         for (; ;) {
             Thread.sleep(2 * 1000);
             String res = helloService.hello("hello dubbo");
-            System.out.println("µ÷ÓÃµÄ½á¹û res=" + res);
+            System.out.println("ï¿½ï¿½ï¿½ÃµÄ½ï¿½ï¿½ res=" + res);
         }
     }
 }

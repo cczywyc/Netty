@@ -16,7 +16,6 @@ import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.stream.ChunkedWriteHandler;
 
 /**
- * websocket实现长连接，服务端
  *
  * @author wangyc
  */
@@ -35,11 +34,11 @@ public class MyTextWebSocketServer {
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ChannelPipeline pipeline = ch.pipeline();
                             pipeline.addLast(new HttpServerCodec());
-                            //以块形式写
+                            //锟皆匡拷锟斤拷式写
                             pipeline.addLast(new ChunkedWriteHandler());
-                            //http数据在传输过程中分段的，将多个段聚合
+                            //http锟斤拷锟斤拷锟节达拷锟斤拷锟斤拷锟斤拷蟹侄蔚模锟斤拷锟斤拷锟斤拷锟轿聚猴拷
                             pipeline.addLast(new HttpObjectAggregator(8192));
-                            //WebSocketServerProtocolHandler 核心功能是将 http协议升级为 ws协议 , 保持长连接
+                            //WebSocketServerProtocolHandler 锟斤拷锟侥癸拷锟斤拷锟角斤拷 http协锟斤拷锟斤拷锟斤拷为 ws协锟斤拷 , 锟斤拷锟街筹拷锟斤拷锟斤拷
                             pipeline.addLast(new WebSocketServerProtocolHandler("/hello"));
                             pipeline.addLast(new MyTextWebSocketFrameHandler());
                         }

@@ -11,33 +11,32 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * ÈºÁÄÏµÍ³·şÎñ¶Ë´¦ÀíÆ÷
  *
  * @author wangyc
  */
 public class GroupChatServerHandler extends SimpleChannelInboundHandler<String> {
-    /** channelGroup£¬¹ÜÀíËùÓĞµÄChannel¡£ GlobalEventExecutor.INSTANCEÈ«¾ÖÊÂ¼şÖ´ĞĞÆ÷£¬ÊÇÒ»¸öµ¥Àı*/
+    /** channelGroupï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½Channelï¿½ï¿½ GlobalEventExecutor.INSTANCEÈ«ï¿½ï¿½ï¿½Â¼ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
     private static ChannelGroup channelGroup = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     /**
-     * ÌáÊ¾¿Í»§¶ËÉÏÏßÁË
-     * @param ctx ÉÏÏÂÎÄ
-     * @throws Exception Òì³£
+     * ï¿½ï¿½Ê¾ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param ctx ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @throws Exception ï¿½ì³£
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println(ctx.channel().remoteAddress() + "ÉÏÏßÁË");
+        System.out.println(ctx.channel().remoteAddress() + "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
     }
 
     /**
-     * ÌáÊ¾¿Í»§¶ËÏÂÏß
-     * @param ctx ÉÏÏÂÎÄ
-     * @throws Exception Òì³£
+     * ï¿½ï¿½Ê¾ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param ctx ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @throws Exception ï¿½ì³£
      */
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println(ctx.channel().remoteAddress() + "ÀëÏßÁË");
+        System.out.println(ctx.channel().remoteAddress() + "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
     }
 
     @Override
@@ -46,48 +45,48 @@ public class GroupChatServerHandler extends SimpleChannelInboundHandler<String> 
     }
 
     /**
-     * Á¬½ÓÒ»µ©½¨Á¢£¬µÚÒ»¸ö±»Ö´ĞĞ¡£½«µ±Ç°channel¼ÓÈëµ½channelGroup
-     * @param ctx ÉÏÏÂÎÄ
-     * @throws Exception Òì³£
+     * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ğ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ç°channelï¿½ï¿½ï¿½ëµ½channelGroup
+     * @param ctx ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @throws Exception ï¿½ì³£
      */
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
-        //»ñÈ¡µ±Ç°channel
+        //ï¿½ï¿½È¡ï¿½ï¿½Ç°channel
         Channel channel = ctx.channel();
-        //½«¸Ã¿Í»§¼ÓÈëÁÄÌì·¢ËÍ¸øÆäËûÔÚÏßµÄ¿Í»§¶Ë¡£¸Ã·½·¨»á±éÀúËùÓĞµÄchannel²¢·¢ËÍÏûÏ¢£¬²»ĞèÒªÔÙ´Î±éÀú
-        channelGroup.writeAndFlush("[¿Í»§¶Ë]" + channel.remoteAddress() + "¼ÓÈëÁÄÌì" + sdf.format(new Date()) + "\n");
+        //ï¿½ï¿½ï¿½Ã¿Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì·¢ï¿½Í¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµÄ¿Í»ï¿½ï¿½Ë¡ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½channelï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ù´Î±ï¿½ï¿½ï¿½
+        channelGroup.writeAndFlush("[ï¿½Í»ï¿½ï¿½ï¿½]" + channel.remoteAddress() + "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + sdf.format(new Date()) + "\n");
         channelGroup.add(channel);
     }
 
     /**
-     * ¶Ï¿ªÁ¬½Ó£¬½«µ±Ç°¿Í»§¶Ï¿ªÁ¬½ÓµÄÏûÏ¢ÍÆËÍ¸øµ±Ç°ÆäËûÔÚÏßµÄ¿Í»§
-     * @param ctx ÉÏÏÂÎÄ
-     * @throws Exception Òì³£
+     * ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Í»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Í¸ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµÄ¿Í»ï¿½
+     * @param ctx ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @throws Exception ï¿½ì³£
      */
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
         Channel channel = ctx.channel();
-        channelGroup.writeAndFlush("[¿Í»§¶Ë]" + channel.remoteAddress() + "Àë¿ªÁË\n");
+        channelGroup.writeAndFlush("[ï¿½Í»ï¿½ï¿½ï¿½]" + channel.remoteAddress() + "ï¿½ë¿ªï¿½ï¿½\n");
         System.out.println("channelGroup size" + channelGroup.size());
     }
 
     /**
-     * ´¦Àí¿Í»§¶ËÏûÏ¢
-     * @param ctx ÉÏÏÂÎÄ
-     * @param msg ¿Í»§¶Ë·¢À´µÄÏûÏ¢
-     * @throws Exception Òì³£
+     * ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+     * @param ctx ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param msg ï¿½Í»ï¿½ï¿½Ë·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+     * @throws Exception ï¿½ì³£
      */
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
-        /** »ñÈ¡µ±Ç°channel */
+        /** ï¿½ï¿½È¡ï¿½ï¿½Ç°channel */
         Channel channel = ctx.channel();
         channelGroup.forEach(ch -> {
             if (channel != ch) {
-                //²»ÊÇµ±Ç°µÄchannel£¬·şÎñ¶Ë×ª·¢´ËÏûÏ¢
-                ch.writeAndFlush("[¿Í»§]" + channel.remoteAddress() + "·¢ËÍÁËÏûÏ¢" + msg + "\n");
+                //ï¿½ï¿½ï¿½Çµï¿½Ç°ï¿½ï¿½channelï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+                ch.writeAndFlush("[ï¿½Í»ï¿½]" + channel.remoteAddress() + "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢" + msg + "\n");
             } else {
-                //»ØÏÔ×Ô¼º·¢ËÍµÄÏûÏ¢
-                ch.writeAndFlush("[×Ô¼º]·¢ËÍÁËÏûÏ¢" + msg + "\n");
+                //ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½Ï¢
+                ch.writeAndFlush("[ï¿½Ô¼ï¿½]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢" + msg + "\n");
             }
         });
     }

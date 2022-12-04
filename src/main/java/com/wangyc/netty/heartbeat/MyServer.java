@@ -16,7 +16,6 @@ import io.netty.handler.timeout.IdleStateHandler;
 import java.util.concurrent.TimeUnit;
 
 /**
- * ·þÎñ¶Ë
  *
  * @author wangyc
  */

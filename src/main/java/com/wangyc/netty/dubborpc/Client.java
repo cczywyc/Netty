@@ -23,18 +23,16 @@ import java.util.concurrent.Executors;
  * @author wangyc
  */
 public class Client {
-    /** 创建线程池 */
     private static ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-    /** 客户端处理器 */
     private static ClientHandler clientHandler;
-    /** 消息计数器 */
     private int count;
 
     /**
-     * 使用代理模式，获取一个代理对象
-     * @param serviceClass 服务类，反射
-     * @param provideName 消息头
-     * @return 代理对象
+     * getBean
+     *
+     * @param serviceClass serviceClass
+     * @param provideName provideName
+     * @return bean
      */
     public Object getBean(final Class<?> serviceClass, final String provideName) {
 

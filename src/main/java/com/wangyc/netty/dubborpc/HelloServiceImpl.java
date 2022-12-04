@@ -4,7 +4,6 @@ package com.wangyc.netty.dubborpc;
  * @author wangyc
  */
 public class HelloServiceImpl implements HelloService {
-    /** 消息计数器 */
     private static int count = 0;
 
     @Override

@@ -13,12 +13,11 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
 /**
- * ÈºÁÄÏµÍ³·þÎñ¶Ë
  *
  * @author wangyc
  */
 public class GroupChatServer {
-    /** ¼àÌý¶Ë¿Ú */
+    /** ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ */
     private int port;
 
     public GroupChatServer(int port) {
@@ -26,7 +25,7 @@ public class GroupChatServer {
     }
 
     private void run() {
-        //´´½¨Á½¸öÏß³Ì×é
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup(1);
 
@@ -45,7 +44,7 @@ public class GroupChatServer {
                             pipeline.addLast(new GroupChatServerHandler());
                         }
                     });
-            System.out.println("·þÎñ¶ËÆô¶¯³É¹¦");
+            System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½");
             ChannelFuture channelFuture = bootstrap.bind(port).sync();
             channelFuture.channel().closeFuture().sync();
         } catch (InterruptedException e) {

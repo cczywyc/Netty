@@ -6,18 +6,16 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import java.nio.charset.StandardCharsets;
 
 /**
- * ¿Í»§¶Ë´¦ÀíÆ÷Äã
  *
  * @author: wangyc
  */
 public class MyClientHandler extends SimpleChannelInboundHandler<MessageProtocol> {
 
-    /** ÏûÏ¢¼ÆÊı */
     private int count;
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        String msg = "½ñÌìÌìÆøÀä£¬³Ô»ğ¹ø";
+        String msg = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ä£¬ï¿½Ô»ï¿½ï¿½";
         byte[] content = msg.getBytes(StandardCharsets.UTF_8);
         int length = msg.getBytes(StandardCharsets.UTF_8).length;
 
@@ -32,11 +30,11 @@ public class MyClientHandler extends SimpleChannelInboundHandler<MessageProtocol
         int length = msg.getLen();
         byte[] content = msg.getContent();
 
-        System.out.println("¿Í»§¶Ë½ÓÊÕµ½µÄÏûÏ¢£º");
-        System.out.println("³¤¶È=" + length);
-        System.out.println("ÄÚÈİ=" + new String(content, StandardCharsets.UTF_8));
+        System.out.println("ï¿½Í»ï¿½ï¿½Ë½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½");
+        System.out.println("ï¿½ï¿½ï¿½ï¿½=" + length);
+        System.out.println("ï¿½ï¿½ï¿½ï¿½=" + new String(content, StandardCharsets.UTF_8));
 
-        System.out.println("¿Í»§¶Ë½ÓÊÕÏûÏ¢µÄÊıÁ¿=" + (++this.count));
+        System.out.println("ï¿½Í»ï¿½ï¿½Ë½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½=" + (++this.count));
     }
 
     @Override

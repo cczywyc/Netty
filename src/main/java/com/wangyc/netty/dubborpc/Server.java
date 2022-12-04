@@ -12,7 +12,7 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
 /**
- * ·þÎñ¶Ë
+ *
  * @author wangyc
  */
 public class Server {

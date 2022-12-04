@@ -9,22 +9,16 @@ import io.netty.handler.timeout.IdleStateEvent;
  */
 public class MyServerHandler extends ChannelInboundHandlerAdapter {
 
-    /**
-     *ÖØÁ¬»úÖÆ
-     * @param ctx ÉÏÏÂÎÄ
-     * @param evt ÊÂ¼þ
-     * @throws Exception Òì³£
-     */
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
         if (evt instanceof IdleStateEvent event) {
             String eventType = switch (event.state()) {
-                case READER_IDLE -> "¶Á¿ÕÏÐ";
-                case WRITER_IDLE -> "Ð´¿ÕÏÐ";
-                case ALL_IDLE -> "¶ÁÐ´¿ÕÏÐ";
+                case READER_IDLE -> "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
+                case WRITER_IDLE -> "Ð´ï¿½ï¿½ï¿½ï¿½";
+                case ALL_IDLE -> "ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½";
             };
-            System.out.println(ctx.channel().remoteAddress() + "--³¬Ê±Ê±¼ä--" + eventType);
-            System.out.println("·þÎñÆ÷×öÏàÓ¦´¦Àí..");
+            System.out.println(ctx.channel().remoteAddress() + "--ï¿½ï¿½Ê±Ê±ï¿½ï¿½--" + eventType);
+            System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½..");
         }
     }
 }

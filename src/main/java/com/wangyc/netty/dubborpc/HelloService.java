@@ -1,7 +1,7 @@
 package com.wangyc.netty.dubborpc;
 
 /**
- * 通用接口
+ * Hello server
  *
  * @author wangyc
  */

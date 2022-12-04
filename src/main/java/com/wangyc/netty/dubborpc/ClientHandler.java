@@ -11,11 +11,8 @@ import java.util.concurrent.Callable;
  * @author wangyc
  */
 public class ClientHandler extends ChannelInboundHandlerAdapter implements Callable {
-    /** 上下文 */
     private ChannelHandlerContext context;
-    /** 返回结果 */
     private String result;
-    /** 客户端调用方法时传入的参数 */
     private String params;
 
     @Override

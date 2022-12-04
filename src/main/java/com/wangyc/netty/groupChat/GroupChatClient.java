@@ -15,14 +15,13 @@ import io.netty.handler.codec.string.StringEncoder;
 import java.util.Scanner;
 
 /**
- * ÈºÁÄÏµÍ³¿Í»§¶Ë
  *
  * @author wangyc
  */
 public class GroupChatClient {
-    /** ·þÎñÆ÷ip */
+    /** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ip */
     private String host;
-    /** ¶Ë¿Ú */
+    /** ï¿½Ë¿ï¿½ */
     private int port;
 
     public GroupChatClient(String host, int port) {

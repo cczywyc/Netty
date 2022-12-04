@@ -4,16 +4,15 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
 /**
- * ÈºÁÄÏµÍ³¿Í»§¶Ë´¦ÀíÆ÷
  *
  * @author wangyc
  */
 public class GroupChatClientHandler extends SimpleChannelInboundHandler<String> {
     /**
-     * ´¦Àí·şÎñÆ÷ÏûÏ¢
-     * @param ctx ÉÏÏÂÎÄ
-     * @param msg ÏûÏ¢
-     * @throws Exception Òì³£
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+     * @param ctx ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param msg ï¿½ï¿½Ï¢
+     * @throws Exception ï¿½ì³£
      */
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {

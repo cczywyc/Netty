@@ -2,14 +2,13 @@ package com.wangyc.netty.protocoltcp;
 
 
 /**
- * Ð­Òé°ü
  *
  * @author: wangyc
  */
 public class MessageProtocol {
-    /** °ü³¤¶È */
+    /** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     private int len;
-    /** °üÄÚÈÝ */
+    /** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     private byte[] content;
 
     public int getLen() {
