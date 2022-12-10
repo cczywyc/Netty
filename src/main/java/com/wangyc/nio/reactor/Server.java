@@ -17,6 +17,10 @@ public class Server {
     /** server port */
     private static final int PORT = 8081;
 
+    public static void main(String[] args) {
+        (new Thread(new Acceptor())).start();
+    }
+
     private static class Acceptor implements Runnable {
         // main reactor thread pool, handle request from client
         private static ExecutorService mainReactor = Executors.newSingleThreadExecutor(new ThreadFactory() {
@@ -24,7 +28,7 @@ public class Server {
             @Override
             public Thread newThread(Runnable r) {
                 Thread thread = newThread(r);
-                thread.setName("main-reactor-" + number.getAndIncrement());
+                thread.setName("main-reactor-" + number.incrementAndGet());
                 return thread;
             }
         });
